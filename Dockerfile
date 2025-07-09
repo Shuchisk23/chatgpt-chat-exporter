@@ -1,7 +1,8 @@
 FROM python:3.10-slim
 
-RUN apt-get update && apt-get install -y \
-    wget unzip curl xvfb libxi6 libgconf-2-4 libnss3-dev libxss1 libappindicator1 \
+# Install dependencies & Chrome, wkhtmltopdf
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    wget unzip curl xvfb libxi6 libgconf-2-4 libnss3 libxss1 libappindicator1 \
     fonts-liberation libasound2 libatk1.0-0 libcups2 libgtk-3-0 libdbus-glib-1-2 \
     chromium wkhtmltopdf && \
     wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/114.0.5735.90/linux64/chromedriver-linux64.zip && \
